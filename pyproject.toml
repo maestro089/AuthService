@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "authservice"
+version = "0.1.0"
+description = ""
+authors = ["maestro089 <egor-karpov08@bk.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+fastapi = "^0.111.0"
+alembic = "^1.13.1"
+sqlalchemy = "^2.0.30"
+black = "^24.4.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
