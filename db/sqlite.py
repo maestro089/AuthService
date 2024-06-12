@@ -1,16 +1,18 @@
 import asyncio
-from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
+
+from sqlalchemy import create_engine
+from sqlalchemy.orm import sessionmaker
 
 from settings import settings
 
-async_engine = create_async_engine(
-    url=settings.sqlite_url_asyncpg,
+sync_engine = create_engine(
+    url="sqlite:///auth.db",
     echo=True,
 )
 
 
-Session = async_sessionmaker(
-    async_engine,
+Session = sessionmaker(
+    sync_engine,
     autocommit=False,
     autoflush=False,
 )

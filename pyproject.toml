@@ -11,6 +11,9 @@ fastapi = "^0.111.0"
 alembic = "^1.13.1"
 sqlalchemy = "^2.0.30"
 black = "^24.4.2"
+pydantic-settings = "^2.3.2"
+aiosqlite = "^0.20.0"
+pyjwt = "^2.8.0"
 
 
 [build-system]

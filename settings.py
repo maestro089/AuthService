@@ -1,4 +1,4 @@
-from pydantic import BaseSettings
+from pydantic.v1 import BaseSettings
 
 
 class Settings(BaseSettings):
@@ -7,9 +7,10 @@ class Settings(BaseSettings):
     DB_USER: str
     DB_PASS: str
     DB_NAME: str
+    SECRETE_KEY: str
 
     @property
-    def sqlite_url_asyncpg(self):
+    def sqlite_url_syncpg(self):
         return f"sqlite:///auth.db"
 
     class Config:

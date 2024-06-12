@@ -1,8 +1,8 @@
-"""test revision
+"""upgrade models
 
-Revision ID: bb173df3a0d0
+Revision ID: 5073597dc07b
 Revises: 
-Create Date: 2024-06-12 12:38:53.508373
+Create Date: 2024-06-12 20:26:54.905427
 
 """
 
@@ -13,7 +13,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = "bb173df3a0d0"
+revision: str = "5073597dc07b"
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -30,7 +30,9 @@ def upgrade() -> None:
         sa.Column("Password", sa.String(), nullable=True),
         sa.Column("DateCreated", sa.DateTime(), nullable=True),
         sa.Column("DateLastVisited", sa.DateTime(), nullable=True),
+        sa.Column("Active", sa.Boolean(), nullable=True),
         sa.PrimaryKeyConstraint("id"),
+        sa.UniqueConstraint("Email"),
     )
     op.create_table(
         "Tokens",
@@ -39,6 +41,7 @@ def upgrade() -> None:
         sa.Column("Token", sa.String(), nullable=True),
         sa.Column("RefreshToken", sa.String(), nullable=True),
         sa.Column("DateCreated", sa.DateTime(), nullable=True),
+        sa.Column("DateUpdate", sa.DateTime(), nullable=True),
         sa.ForeignKeyConstraint(
             ["UserID"],
             ["Users.id"],
