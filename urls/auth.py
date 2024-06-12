@@ -1,5 +1,7 @@
 from fastapi import APIRouter
 
+from db.models import Users
+
 auth = APIRouter()
 
 
