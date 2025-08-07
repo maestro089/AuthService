@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "authservice"
+name = "fastapi-service"
 version = "0.1.0"
 description = ""
 authors = ["maestro089 <egor-karpov08@bk.ru>"]
@@ -7,13 +7,15 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.11"
-fastapi = "^0.111.0"
+fastapi = "^0.109.0"
+uvicorn = "^0.27.0.post1"
 alembic = "^1.13.1"
-sqlalchemy = "^2.0.30"
-black = "^24.4.2"
-pydantic-settings = "^2.3.2"
-aiosqlite = "^0.20.0"
-pyjwt = "^2.8.0"
+psycopg = "^3.1.17"
+psycopg-binary = "^3.1.17"
+psycopg2 = "^2.9.9"
+pydantic = {extras = ["dotenv", "email"], version = "^2.11.7"}
+python-dotenv = "^1.1.1"
+pyjwt = "^2.10.1"
 
 
 [build-system]

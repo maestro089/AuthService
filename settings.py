@@ -10,7 +10,11 @@ class Settings(BaseSettings):
     SECRETE_KEY: str
 
     @property
-    def sqlite_url_syncpg(self):
+    def DATABASE_URL_PSYCOPG(self):
+        return f"postgresql+psycopg://{self.DB_USER}:{self.DB_PASS}@{self.DB_HOST}:{self.DB_PORT}/{self.DB_NAME}"
+
+    @property
+    def SQLITE_URL_SYNCPG(self):
         return f"sqlite:///auth.db"
 
     class Config:

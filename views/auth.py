@@ -5,13 +5,14 @@ import jwt
 from sqlalchemy import select
 
 from db.models import Users, Tokens
-from db.sqlite import get_session
+from db.sqlite import get_session_sqlite
+from db.postgresql import get_session_postgres
 from schemas.users import UserRegister
 from settings import settings
 
 
 class AuthView:
-    def __init__(self, session=Depends(get_session)):
+    def __init__(self, session=Depends(get_session_postgres)):
         self.session = session
 
     def _generate_token(self, userId: int) -> str:
