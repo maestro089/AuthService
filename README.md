@@ -14,3 +14,4 @@ alembic upgrade head
 * urls - ендпоинты
 * views - представления
 * settings - глобальные настройки проекта
+* * settings - глобальные настройки проекта
